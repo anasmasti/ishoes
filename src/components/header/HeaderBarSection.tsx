@@ -2,20 +2,21 @@ import { View, Text } from "react-native";
 import { Fragment } from "react";
 import { HeaderMenu } from "./HeaderBar";
 
-export default function HeaderBarSection(item: HeaderMenu) {
+interface HeaderBarSectionProps {
+  title: HeaderMenu["title"];
+}
+export default function HeaderBarSection({ title }: HeaderBarSectionProps) {
   function isString(value: HeaderMenu["title"]): value is string {
     return typeof value === "string";
   }
 
-  function renderItem(item: HeaderMenu) {
-    const { id, title } = item;
-
+  function renderItem(title: HeaderMenu["title"]) {
     return isString(title) ? (
-      <Text key={id}>{title}</Text>
+      <Text>{title}</Text>
     ) : (
-      <Fragment key={id}>{title}</Fragment>
+      <Fragment>{title}</Fragment>
     );
   }
 
-  return <View>{renderItem(item)}</View>;
+  return <View>{renderItem(title)}</View>;
 }
