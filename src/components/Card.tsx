@@ -1,15 +1,6 @@
 import { Text, StyleSheet, ImageBackground } from "react-native";
 import React from "react";
-
-interface CardProps {
-  title: string;
-  imageUrl: string;
-  type: "regular" | "caption";
-  size: {
-    height?: number;
-    width?: number;
-  };
-}
+import { CardProps } from "../../core/types/Card";
 
 export default function Card({ title, imageUrl, type, size }: CardProps) {
   return (
