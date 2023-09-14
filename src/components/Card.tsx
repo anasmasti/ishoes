@@ -1,6 +1,7 @@
 import { Text, StyleSheet, ImageBackground } from "react-native";
 import React from "react";
 import { CardProps } from "../../core/types/Card";
+import Badge from "./Badge";
 
 export default function Card({ title, imageUrl, type, size }: CardProps) {
   return (
@@ -23,6 +24,7 @@ export default function Card({ title, imageUrl, type, size }: CardProps) {
 
 const style = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 15,
     borderRadius: 15,
     shadowOffset: {
