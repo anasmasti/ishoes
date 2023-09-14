@@ -1,4 +1,10 @@
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import Card from "./Card";
 
@@ -18,7 +24,12 @@ export default function InfoSection({
 }: InfoSectionProps) {
   return (
     <View style={style.container}>
-      <Text style={style.title}>{title}</Text>
+      <View style={style.header}>
+        <Text style={style.title}>{title}</Text>
+        <TouchableOpacity>
+          <Text style={style.action}>See All</Text>
+        </TouchableOpacity>
+      </View>
       <FlatList
         style={style.list}
         ItemSeparatorComponent={() => <View style={{ width: 12 }}></View>}
@@ -48,5 +59,14 @@ const style = StyleSheet.create({
   },
   title: {
     fontSize: 20,
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  action: {
+    fontSize: 12,
+    color: "green",
   },
 });
