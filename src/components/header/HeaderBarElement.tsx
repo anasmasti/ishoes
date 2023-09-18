@@ -2,10 +2,10 @@ import { View, Text } from "react-native";
 import { Fragment } from "react";
 import { HeaderMenu } from "./HeaderBar";
 
-interface HeaderBarSectionProps {
+interface HeaderBarElementProps {
   title: HeaderMenu["title"];
 }
-export default function HeaderBarSection({ title }: HeaderBarSectionProps) {
+export default function HeaderBarElement({ title }: HeaderBarElementProps) {
   function isString(value: HeaderMenu["title"]): value is string {
     return typeof value === "string";
   }

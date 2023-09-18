@@ -1,13 +1,13 @@
 import { View, StyleSheet } from "react-native";
 import { MenuIcon } from "../icons/MenuIcon";
 import React from "react";
-import HeaderBarSection from "./HeaderBarSection";
+import HeaderBarElement from "./HeaderBarElement";
 import FavIcon from "../icons/FavIcon";
 import Logo from "../Logo";
 
 export type HeaderMenu = {
   id: number;
-  title: string | JSX.Element;
+  title: string | React.JSX.Element;
 };
 
 export default function HeaderBar() {
@@ -20,7 +20,7 @@ export default function HeaderBar() {
   return (
     <View style={styles.container}>
       {HEADER_MENU.map(({ id, title }) => (
-        <HeaderBarSection key={id} title={title} />
+        <HeaderBarElement key={id} title={title} />
       ))}
     </View>
   );

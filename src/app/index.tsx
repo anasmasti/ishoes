@@ -1,7 +1,8 @@
 import { SafeAreaView, StyleSheet, View } from "react-native";
-import HeaderBar from "../components/header/HeaderBar";
-import InfoSection from "../components/InfoSection";
 import Card from "../components/Card";
+import InfoSection from "../components/InfoSection";
+import { Link } from "expo-router";
+import HeaderBar from "../components/header/HeaderBar";
 
 export default function Home() {
   const ITEMS = [
@@ -128,6 +129,7 @@ export default function Home() {
   return (
     <SafeAreaView>
       <View style={style.body}>
+        <Link href={"/detail"}>goo</Link>
         <HeaderBar />
         <Card
           title="New release"
@@ -146,7 +148,6 @@ export default function Home() {
 
 const style = StyleSheet.create({
   body: {
-    padding: 15,
     gap: 35,
   },
 });
