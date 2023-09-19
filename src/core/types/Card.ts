@@ -1,9 +1,10 @@
 export type CardProps = {
-  title: string;
+  title?: string;
   imageUrl: string;
   type: "regular" | "caption";
   size?: {
     height?: number;
     width?: number;
   };
+  href?: string;
 };

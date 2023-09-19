@@ -1,6 +1,7 @@
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import { View, Text, FlatList, StyleSheet, SafeAreaView } from "react-native";
 import React from "react";
 import Card from "../components/Card";
+import MainLayout from "../layouts/MainLayout";
 
 export default function ListDetail({ title = "List" }) {
   const ITEMS = [
@@ -79,27 +80,31 @@ export default function ListDetail({ title = "List" }) {
   ];
 
   return (
-    <View style={style.container}>
-      <Text style={style.title}>{title}</Text>
-      <FlatList
-        ItemSeparatorComponent={() => <View style={{ height: 12 }}></View>}
-        data={ITEMS}
-        renderItem={({ item }) => (
-          <Card
-            title={item.title}
-            size={{ height: 125 }}
-            imageUrl={item.imageUrl}
-            type={"regular"}
+    <SafeAreaView>
+      <View style={style.container}>
+        <MainLayout>
+          <Text style={style.title}>{title}</Text>
+          <FlatList
+            ItemSeparatorComponent={() => <View style={{ height: 12 }}></View>}
+            data={ITEMS}
+            renderItem={({ item }) => (
+              <Card
+                title={item.title}
+                size={{ height: 125 }}
+                imageUrl={item.imageUrl}
+                type={"regular"}
+              />
+            )}
+            keyExtractor={(item) => item.id}
+            showsHorizontalScrollIndicator={false}
           />
-        )}
-        keyExtractor={(item) => item.id}
-        showsHorizontalScrollIndicator={false}
-      />
-    </View>
+        </MainLayout>
+      </View>
+    </SafeAreaView>
   );
 }
 
 const style = StyleSheet.create({
-  container: { flex: 1, paddingHorizontal: 12 },
+  container: { paddingHorizontal: 14 },
   title: { fontSize: 40, paddingVertical: 8 },
 });

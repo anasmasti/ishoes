@@ -1,30 +1,50 @@
-import { Text, StyleSheet, ImageBackground } from "react-native";
-import React from "react";
+import {
+  Text,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
+import React, { ReactElement } from "react";
 import { CardProps } from "../core/types/Card";
+import { useRouter } from "expo-router";
 
-export default function Card({ title, imageUrl, type, size }: CardProps) {
+export default function Card({
+  title,
+  imageUrl,
+  type,
+  size,
+  href = "/",
+}: CardProps): ReactElement {
+  const router = useRouter();
+
+  function goToDetails() {
+    router.push(href);
+  }
+
   return (
-    <ImageBackground
-      source={{
-        uri: imageUrl,
-      }}
-      borderRadius={15}
-      style={[
-        style.container,
-        type === "regular" ? style.regular : style.caption,
-        size,
-        style.cover,
-      ]}
-    >
-      <Text style={style.title}>{title}</Text>
-    </ImageBackground>
+    <TouchableOpacity onPress={() => goToDetails()}>
+      <ImageBackground
+        source={{
+          uri: imageUrl,
+        }}
+        borderRadius={15}
+        style={[
+          style.card,
+          type === "regular" ? style.regular : style.caption,
+          size,
+          style.cover,
+        ]}
+      >
+        <Text style={style.title}>{title}</Text>
+      </ImageBackground>
+    </TouchableOpacity>
   );
 }
 
 const style = StyleSheet.create({
-  container: {
+  card: {
     padding: 15,
-    borderRadius: 15,
+    borderRadius: 1,
     shadowOffset: {
       width: 1,
       height: 4.75,

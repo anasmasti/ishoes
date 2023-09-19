@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
-import React from "react";
+import React, { ReactElement } from "react";
 import Card from "./Card";
 
 interface InfoSectionProps {
@@ -21,7 +21,7 @@ export default function InfoSection({
   title,
   items,
   itemsSize,
-}: InfoSectionProps) {
+}: InfoSectionProps): ReactElement {
   return (
     <View style={style.container}>
       <View style={style.header}>
@@ -40,6 +40,7 @@ export default function InfoSection({
             size={itemsSize}
             imageUrl={item.imageUrl}
             type={item.type || "regular"}
+            href={item.href}
           />
         )}
         keyExtractor={(item) => item.id}

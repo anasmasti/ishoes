@@ -14,7 +14,6 @@ export default function HomeLayout() {
 const style = StyleSheet.create({
   container: {
     height: "100%",
-    paddingHorizontal: 14,
     gap: 23,
   },
 });

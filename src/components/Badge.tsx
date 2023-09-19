@@ -1,12 +1,15 @@
 import { View, StyleSheet, Text } from "react-native";
-import React from "react";
+import React, { ReactElement } from "react";
 
 type BadgeProps = {
   title: string;
   backgroundColor: string;
 };
 
-export default function Badge({ title, backgroundColor }: BadgeProps) {
+export default function Badge({
+  title,
+  backgroundColor,
+}: BadgeProps): ReactElement {
   return (
     <View style={[style.container, { backgroundColor: backgroundColor }]}>
       <Text style={style.title}>{title}</Text>
